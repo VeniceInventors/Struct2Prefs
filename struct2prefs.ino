@@ -49,7 +49,7 @@ void setup() {
   prefs.remove(coins); 
   // or use clear() to remove everything stored as "settings", which is the
   // currently active namespace as specified with prefs.begin("settings")
-  Serial.println("Settings from flash " + prefs.clear() ? "cleared" : "could not be cleared");
+  Serial.printf("Settings from flash %s\n", prefs.clear() ? "cleared" : "could not be cleared");
 
   prefs.end(); // not necesssary unless another namespace needs to be activated
 } // end of setup()

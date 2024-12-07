@@ -44,6 +44,14 @@ void setup() {
   // Verify that all the values were restored properly
   Serial.printf("Data loaded: Coins = %f, TZ = %d, SSID = \"%s\", Password = \"%s\", IP = %d.%d.%d.%d, GW = %d.%d.%d.%d\n", 
     s2.btc, s2.tz, s2.ssid, s2.pass, s2.ip[0],s2.ip[1],s2.ip[2],s2.ip[3], s2.gw[0],s2.gw[1],s2.gw[2],s2.gw[3]);
+
+  // Use this remove a single key/value
+  prefs.remove(coins); 
+  // or use clear() to remove everything stored as "settings", which is the
+  // currently active namespace as specified with prefs.begin("settings")
+  Serial.println("Settings from flash " + prefs.clear() ? "cleared" : "could not be cleared");
+
+  prefs.end(); // not necesssary unless another namespace needs to be activated
 } // end of setup()
 
 void loop() {
